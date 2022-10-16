@@ -5,7 +5,8 @@
       <map>
         <entry key="..\:/Techno71/app/src/main/res/drawable/rounded_corner.xml" value="0.1425" />
         <entry key="..\:/Techno71/app/src/main/res/layout/activity_browser.xml" value="0.1600877192982456" />
-        <entry key="..\:/Techno71/app/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="..\:/Techno71/app/src/main/res/layout/activity_main.xml" value="0.2" />
+        <entry key="..\:/Techno71/app/src/main/res/layout/activity_splash.xml" value="0.17192982456140352" />
         <entry key="..\:/Techno71/app/src/main/res/layout/no_internet.xml" value="0.1600877192982456" />
       </map>
     </option>

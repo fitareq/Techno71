@@ -35,6 +35,9 @@ public class BrowserActivity extends AppCompatActivity implements NoInternetList
         super.onCreate(savedInstanceState);
         binding = ActivityBrowserBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+
+        binding.toolbar.setTitleTextColor(getResources().getColor(R.color.white));
+
         URL = getIntent().getStringExtra(Utils.URL_KEY);
 
         receiver = new NetworkChangeReceiver();
@@ -60,12 +63,15 @@ public class BrowserActivity extends AppCompatActivity implements NoInternetList
         webView.getSettings().setAllowFileAccess(true);
         webView.getSettings().setLoadWithOverviewMode(true);
         webView.getSettings().setUseWideViewPort(true);
-        webView.getSettings().setPluginState(WebSettings.PluginState.ON);
         webView.setWebViewClient(new mWebViewClient());
         webView.setWebChromeClient(new mChromeClient());
 
 
         loadUrl();
+
+        binding.toolbar.setNavigationOnClickListener(view -> {
+            finish();
+        });
 
     }
 
