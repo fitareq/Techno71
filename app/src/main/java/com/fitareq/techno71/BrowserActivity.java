@@ -1,6 +1,7 @@
 package com.fitareq.techno71;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import android.content.BroadcastReceiver;
 import android.content.Intent;
@@ -73,6 +74,8 @@ public class BrowserActivity extends AppCompatActivity implements NoInternetList
             finish();
         });
 
+        binding.layroot.setOnRefreshListener(this::loadUrl);
+
     }
 
 
@@ -125,7 +128,7 @@ public class BrowserActivity extends AppCompatActivity implements NoInternetList
             binding.progressBar.setProgress(newProgress);
             if (newProgress >= 100) {
                 // Page loading finish
-
+                binding.layroot.setRefreshing(false);
                 binding.progressBar.setVisibility(View.GONE);
 
             } else {

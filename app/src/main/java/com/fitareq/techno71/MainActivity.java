@@ -1,6 +1,7 @@
 package com.fitareq.techno71;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -80,9 +81,14 @@ public class MainActivity extends AppCompatActivity {
         ArrayList<String> arrayList = Utils.getRecentSearch(this);
 
         if (!arrayList.isEmpty()) {
-            HashSet<String> hashSet = new HashSet<>(arrayList);
-            arrayList = new ArrayList<>(hashSet);
-            ArrayAdapter<String> adapter = new ArrayAdapter<>(
+            //HashSet<String> hashSet = new HashSet<>(arrayList);
+            //arrayList = new ArrayList<>(hashSet);
+
+            binding.list.setLayoutManager(new LinearLayoutManager(MainActivity.this));
+            binding.list.setAdapter(new RecentAdapter(arrayList, () -> {
+                binding.recentSearch.setVisibility(View.GONE);
+            }));
+           /* ArrayAdapter<String> adapter = new ArrayAdapter<>(
                     this,
                     com.google.android.material.R.layout.support_simple_spinner_dropdown_item,
                     arrayList
@@ -95,7 +101,7 @@ public class MainActivity extends AppCompatActivity {
                 public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                     startActivity(new Intent(getApplicationContext(), BrowserActivity.class).putExtra(Utils.URL_KEY, adapter.getItem(i)));
                 }
-            });
+            });*/
             binding.recentSearch.setVisibility(View.VISIBLE);
             binding.list.setVisibility(View.VISIBLE);
         } else {
