@@ -92,7 +92,7 @@ public class BrowserActivity extends AppCompatActivity implements NoInternetList
 
     @Override
     public void noInternet(boolean b) {
-        if (b && binding.layNonet.getVisibility() == View.VISIBLE){
+        if (b){
             loadUrl();
         }
     }
